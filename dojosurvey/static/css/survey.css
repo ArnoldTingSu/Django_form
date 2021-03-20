@@ -1,0 +1,15 @@
+*{
+    display: block;
+    margin: 4px;
+}
+
+form {
+    padding: 20px;
+    border: 2px black solid;
+    display: inline-block;
+}
+
+label {
+    color: red;
+
+}
