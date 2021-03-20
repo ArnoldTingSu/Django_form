@@ -2,19 +2,16 @@ from django.shortcuts import render, HttpResponse, redirect
 
 # Create your views here.
 def index(request):
-    return render(request, 'school_survey.html')
-    print(request.POST)
+    print("arrived via redirect!!")
+    return render(request,'school_survey.html')
+
+def process(request):
+    if request.method == "POST":
+        request.session['name'] = request.POST['name']
+        request.session['location'] = request.POST['location']
+        request.session['language'] = request.POST['language']
+        request.session['comments'] = request.POST['comments']
+        return redirect('/results')
 
 def results(request):
-    context = {
-        "whole_name": request.POST['whole_name'],
-        "location": request.POST['location'],
-        "favorite_language": request.POST['language'],
-        "comments": request.POST['comments']
-    }
-    if request.method == "POST":  
-        whole_name = request.POST["whole_name"]
-        location = request.POST["location"]
-        favorite_language = request.POST['language']
-        comments = request.POST['comments']
-    return render(request, 'results.html', context)
+    return render(request, 'results.html')

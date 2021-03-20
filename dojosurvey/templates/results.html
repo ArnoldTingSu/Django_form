@@ -11,10 +11,10 @@
 <body>
     <h1>Submitted Info</h1>
     <div class="info">
-        <p>Name: {{whole_name}}</p>
-        <p>Dojo Location: {{location}}</p>
-        <p>Favorite Language: {{favorite_language}}</p>
-        <p>Comments: {{comments}}</p>
+        <p>Name: {{request.session.name}}</p>
+        <p>Dojo Location: {{request.session.location}}</p>
+        <p>Favorite Language: {{request.session.language}}</p>
+        <p>Comments: {{request.session.comments}}</p>
         <form action="/">
             <button>Back</button>
         </form>
